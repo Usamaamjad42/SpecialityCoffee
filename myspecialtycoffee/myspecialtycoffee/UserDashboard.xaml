@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myspecialtycoffee.UserDashboard"
+             Title = "Dashboard">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Log Out" Order="Secondary" Clicked="BtnLogOut_Clicked"  />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <Grid Padding="10" RowSpacing="10" ColumnSpacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <!--3 Rows-->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--2 Columns-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.Column="0" HasShadow="True" BorderColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="onFrameSaleReporter_Tapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+                        <Image  Source="ic_sales.png" HorizontalOptions="Center" />
+                        <Label  Text="Sales Report" TextColor="Black" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!--<Frame Grid.Row="0" Grid.Column="1" HasShadow="True" BorderColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="onFrameSaleReporter_Tapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+                        <Image  Source="ic_sales.png" HorizontalOptions="Center" />
+                        <Label  Text="Sales Report" TextColor="Black" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="0" HasShadow="True" BorderColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="onFrameSaleReporter_Tapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+                        <Image  Source="ic_sales.png" HorizontalOptions="Center" />
+                        <Label  Text="Sales Report" TextColor="Black" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="1" HasShadow="True" BorderColor="LightGray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="onFrameSaleReporter_Tapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+                        <Image  Source="ic_sales.png" HorizontalOptions="Center" />
+                        <Label  Text="Sales Report" TextColor="Black" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>-->
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

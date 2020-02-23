@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+             xmlns:Local="clr-namespace:myspecialtycoffee.ViewModel"
+             xmlns:local="clr-namespace:myspecialtycoffee"
+             x:Class="myspecialtycoffee.Sales"
+             Title = "Sales Reports">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Search Date Wise" Order="Secondary" Clicked="BtnSearchDateWise_Clicked"  />
+        <ToolbarItem  Text="Show All Sales" Order="Secondary" Clicked="ShowAllSales_Clicked"  />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.BindingContext>
+        <Local:InvoiceViewModel x:Name="BCinvoiceViewModel"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CustomStyleSyncfusion x:Key="customStyle" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+            
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+
+                <SearchBar x:Name="SearchAny" TextChanged="SearchAny_TextChanged" Placeholder="Search here..."/>
+
+                <Frame HasShadow="True" BorderColor="LightGray">
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Total Vat: " TextColor="Black" FontSize="Small" />
+                            <Label x:Name="txt_totalVat" Text="0.0" TextColor="Red" FontSize="Small" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Total Amount Without Vat: " TextColor="Black" FontSize="Small" />
+                            <Label x:Name="txt_totalAmount" Text="0.0" TextColor="Red" FontSize="Small" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Total Amount With VAT: " TextColor="Black" FontSize="Medium" />
+                            <Label x:Name="txt_totalWithVatAmount" Text="0.0" TextColor="Red" FontSize="Medium" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+            
+            
+            <Syncfusion:SfDataGrid x:Name="dataGrid" 
+                                   AutoGenerateColumns="False"
+                                   ItemsSource="{Binding InvoicesInfo}"                                 
+                                   SelectionMode="Single"
+                                   AllowSorting="True"
+                                   GridStyle="{StaticResource customStyle}">
+
+                <Syncfusion:SfDataGrid.Columns>
+                    <Syncfusion:GridTextColumn HeaderText="Invoice No" MappingName="InvnoCLD" />
+                    <Syncfusion:GridTextColumn HeaderText="Sales Man" MappingName="SalesManCLD" />
+                    <Syncfusion:GridTextColumn HeaderText="Amount" MappingName="TotalAmountCLD" />
+                    <Syncfusion:GridTextColumn HeaderText="Total With Vat" MappingName="TotalWithVatCLD"/>
+                    <Syncfusion:GridTextColumn HeaderText="Date" MappingName="DateCLD"/>
+                    <Syncfusion:GridTextColumn HeaderText="Vat" MappingName="VatCLD"/>
+                    <Syncfusion:GridTextColumn HeaderText="Payment Type" MappingName="PaymentTypeCLD"/>
+                    <Syncfusion:GridTextColumn HeaderText="Order Type" MappingName="OrderTypeCLD"/>
+                    <Syncfusion:GridTextColumn HeaderText="Cust ID" MappingName="CustIDCLD"/>
+                </Syncfusion:SfDataGrid.Columns>
+
+                <Syncfusion:SfDataGrid.GroupColumnDescriptions>
+                    <Syncfusion:GroupColumnDescription ColumnName="DateCLD"/>
+                </Syncfusion:SfDataGrid.GroupColumnDescriptions>
+
+
+
+            </Syncfusion:SfDataGrid>
+
+
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
